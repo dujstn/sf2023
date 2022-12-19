@@ -8,7 +8,7 @@ const Home = () => {
         <h1>
           <img src={logo} className="Home-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Interrsect
           </p>
           <a
             className="Home-link"
