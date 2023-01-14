@@ -25,6 +25,15 @@ const Home = () => {
           >
             Try it yourself
           </a>
+          <br />
+          <a
+            className="Home-link"
+            href="/test"
+            target="_self"
+            rel="noopener noreferrer"
+          >
+            test link
+          </a>
 
         </h1>
       </header>
