@@ -1,21 +1,19 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import Notes from "./components/Notes"
-import Demo from "./components/Demo"
-import Test from "./components/Test"
-import "./App.css";
+// routes
+import Router from './routes';
+// theme
+import ThemeProvider from './theme';
+// components
+import ScrollToTop from './components/scroll-to-top';
+import { StyledChart } from './components/chart';
 
-function App() {
+// ----------------------------------------------------------------------
+
+export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/notes" element={<Notes />} />
-        <Route path="/demo" element={<Demo />} />
-        <Route path="/test" element={<Test />} />
-      </Routes>
-    </Router>
+    <ThemeProvider>
+      <ScrollToTop />
+      <StyledChart />
+      <Router />
+    </ThemeProvider>
   );
 }
-
-export default App;
