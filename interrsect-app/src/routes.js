@@ -5,7 +5,7 @@ import SimpleLayout from './layouts/simple';
 import LandingLayout from './layouts/landing';
 //
 import Page404 from './pages/Page404';
-import TestPage from './pages/TestPage';
+import DemoPage from './pages/DemoPage';
 import AboutPage from './pages/AboutPage';
 
 // ----------------------------------------------------------------------
@@ -16,8 +16,8 @@ export default function Router() {
       path: '/dashboard',
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/dashboard/test" />, index: true },
-        { path: 'test', element: <TestPage /> },
+        { element: <Navigate to="/dashboard/demo" />, index: true },
+        { path: 'demo', element: <DemoPage /> },
         {path: 'about', element: <AboutPage />}
       ],
     },
