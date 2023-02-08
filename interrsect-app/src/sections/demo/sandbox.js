@@ -4,38 +4,42 @@ import {
   Container,
   Typography,
   Stack,
-  CircularProgress,
+  LinearProgress,
   Divider,
   Card,
   CardHeader,
+  Box,
+  ListItem,
 } from '@mui/material';
 import { useState } from 'react';
 import { query } from '../../functions/query';
+import useResponsive from '../../hooks/useResponsive';
 
 export default function Sandbox() {
-  const sampleOne = 'The cat is a purebred. It likes to eat rasins and go for walks. ';
+  const sampleOne = 'The cat is a purebred. It likes to eat fruit and go for walks. ';
   const sampleTwo =
     'The cat, adopted in 2019, is from a shelter that houses previously abandoned animals. It likes to go for walks, especially in the evenings when it is quieter. ';
   const sampleThree =
-    'The cat loves to eat rasins, especially those from the brand Sun Maid. Most of the meals it has features this snack. ';
+    'The cat loves to eat fruit, especially apples and oranges. Most of the meals it has features this snack. ';
   const samples = sampleOne + sampleTwo + sampleThree;
   const [userInput, setUserInput] = useState('');
   const [prediction, setPrediction] = useState('');
   const [loading, setLoading] = useState(false);
+  const isNarrow = useResponsive('up', 'lg');
   return (
     <>
-      <Container maxWidth="lg">
-        <Card padding={4} sx={{ my: 2 }}>
+      <Container>
+        <Card sx={{ my: 2, p: 4 }}>
           <CardHeader title={'Students say...'} />
-          <Stack direction="row" spacing={3} sx={{ p: 4 }}>
+          <Stack direction={isNarrow ? 'row' : 'column'} spacing={3} sx={{ p: 4 }}>
             <Typography variant="p" align="center">
               {sampleOne}
             </Typography>
-            <Divider orientation="vertical" flexItem />
+            <Divider orientation={isNarrow ? 'vertical' : 'horizontal'} flexItem />
             <Typography variant="p" align="center">
               {sampleTwo}
             </Typography>
-            <Divider orientation="vertical" flexItem />
+            <Divider orientation={isNarrow ? 'vertical' : 'horizontal'} flexItem />
             <Typography variant="p" align="center">
               {sampleThree}
             </Typography>
@@ -43,12 +47,13 @@ export default function Sandbox() {
         </Card>
         <Card sx={{ my: 2 }}>
           <CardHeader title={'Your Input'} />
-          <Stack sx={{ p: 4 }} spacing={2}>
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <TextField
               multiline
               variant="filled"
-              label="Enter text"
-              minRows={3}
+              label="Add on to this description..."
+              minRows={1}
+              sx={{ m: 4, flex: 1 }}
               onChange={(update) => {
                 setUserInput(update.target.value);
               }}
@@ -72,15 +77,16 @@ export default function Sandbox() {
             >
               SUBMIT
             </Button>
-            <CircularProgress style={{ display: loading ? 'block' : 'none' }} />
-            <Typography>{loading ? 'loading' : ''}</Typography>
-          </Stack>
+            {loading ? <LinearProgress sx={{ mt: 1 }} /> : <></>}
+          </Box>
         </Card>
         <Card sx={{ my: 2 }}>
           <CardHeader title={'BARTxiv says...'} />
-          <Typography variant="h5" sx={{ p: 4 }}>
-            {prediction}
-          </Typography>
+          {prediction.split('. ').map((sentence) => (
+            <ListItem sx={{display: 'list-item'}}>
+              {sentence}
+            </ListItem>
+          ))}
         </Card>
       </Container>
     </>

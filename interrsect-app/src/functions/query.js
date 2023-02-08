@@ -1,9 +1,9 @@
 export async function query(data) {
-  console.log('request recieved!')
-  let prediction = ''
+  console.log('request recieved!');
+  let prediction = '';
   const response = await fetch('https://api-inference.huggingface.co/models/kworts/BARTxiv', {
     headers: {
-      Authorization: 'Bearer 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',
+      Authorization: process.env.REACT_APP_HUGGINGFACE_KEY,
     },
     method: 'POST',
     body: JSON.stringify(data),

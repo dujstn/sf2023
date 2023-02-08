@@ -2,11 +2,15 @@ import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
 import SimpleLayout from './layouts/simple';
-import LandingLayout from './layouts/landing';
 //
 import Page404 from './pages/Page404';
 import DemoPage from './pages/DemoPage';
 import AboutPage from './pages/AboutPage';
+import ChemPage from './pages/ChemPage';
+
+// Subsections
+import FebTen from './sections/chem/FebTen';
+import FebFourteen from './sections/chem/FebFourteen';
 
 // ----------------------------------------------------------------------
 
@@ -18,13 +22,21 @@ export default function Router() {
       children: [
         { element: <Navigate to="/dashboard/demo" />, index: true },
         { path: 'demo', element: <DemoPage /> },
-        {path: 'about', element: <AboutPage />}
+        { path: 'about', element: <AboutPage /> },
+        {
+          path: 'chemtwelve',
+          element: <ChemPage />,
+          children: [
+            { path: 'feb-10', element: <FebTen /> },
+            { path: 'feb-14', element: <FebFourteen /> },
+          ],
+        },
       ],
     },
     {
-      element: <LandingLayout />,
+      element: <SimpleLayout />,
       children: [
-        { element: <Navigate to="/" />, index: true },
+        { element: <Navigate to="/dashboard" />, index: true },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/404" /> },
       ],

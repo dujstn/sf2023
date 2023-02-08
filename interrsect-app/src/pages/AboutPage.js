@@ -1,13 +1,16 @@
-import { Typography, Button, Card, CardHeader} from "@mui/material"
+import { Typography, Button, Card, CardHeader} from '@mui/material';
+import { Helmet } from 'react-helmet-async';
 
-export default function AboutPage(){
-    return(
+export default function AboutPage() {
+  return (
     <>
-        <Typography variant='h1'>Inspired by Gregory Durno...</Typography>
-        <Card>
-            <CardHeader title={'YESSSS'} />
-
-        </Card>
+      <Helmet>
+        <title>About</title>
+      </Helmet>
+      <Typography variant="h1">About This Project</Typography>
+      <Card>
+        <CardHeader title={'Introduction'} />
+      </Card>
     </>
-    )
+  );
 }
