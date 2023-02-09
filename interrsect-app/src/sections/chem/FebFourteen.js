@@ -19,9 +19,6 @@ async function handleClick() {
 export default function FebFourteen() {
   return (
     <>
-      <Button variant="text" href="./">
-        ← Back
-      </Button>
       <Card sx={{ my: 2, p: 4 }}>
         <Typography variant="h2">Factors to Reaction</Typography>
       </Card>

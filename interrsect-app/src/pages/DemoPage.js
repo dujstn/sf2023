@@ -18,12 +18,10 @@ export default function DemoPage() {
       <Helmet>
         <title>Demo</title>
       </Helmet>
-      <Typography variant="h1">
-        <Typography variant="h1" fontFamily="consolas" color="#F35938">
-          interrsect-app
-        </Typography>{' '}
-        summarizes notes.
+      <Typography variant="h1" fontFamily="consolas" color="#F35938">
+        interrsect-app
       </Typography>
+      <Typography variant="h1">summarizes notes.</Typography>
       <Grid container alignItems={'center'} direction="column">
         <Grid item>
           <ToggleButtonGroup onChange={handleChange} exclusive color="primary" value={exp}>

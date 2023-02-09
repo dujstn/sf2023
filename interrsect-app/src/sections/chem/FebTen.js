@@ -1,37 +1,17 @@
-import { Typography, Card, Button } from '@mui/material';
-import { collection, addDoc } from 'firebase/firestore';
-
-import db from '../../firebase';
-
-async function handleClick() {
-  try {
-    const docRef = await addDoc(collection(db, 'users'), {
-      first: 'Ada',
-      last: 'Lovelace',
-      born: 1815,
-    });
-    console.log('Document written with ID: ', docRef.id);
-  } catch (e) {
-    console.error('Error adding document: ', e);
-  }
-}
+import { Typography, Card, Button, useTheme } from '@mui/material';
+import CarouselExercises from '../../components/carousel/CarouselExercises';
 
 export default function FebTen() {
+  const theme = useTheme();
   return (
     <>
-      <Button variant="text" href="./">
-        ← Back
-      </Button>
-      <Card sx={{ my: 2, p: 4 }}>
+      <Card sx={{ my: 2, p: 4, maxWidth: 'lg', backgroundColor: '#d6efff' }}>
         <Typography variant="h2">Monitoring Reactions</Typography>
+        <Typography variant="p">
+          Summarize each slide in exactly <strong>2</strong> sentences.
+        </Typography>
+        <CarouselExercises day="febten" num={6} />
       </Card>
-      <Button
-        onClick={() => {
-          handleClick();
-        }}
-      >
-        Send to Database
-      </Button>
     </>
   );
 }
