@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, TextField, Typography } from '@mui/material';
 import { collection, addDoc } from 'firebase/firestore';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -32,22 +32,25 @@ export default function CarouselExercises({ day, num, ...other }) {
           <Box component="img" src={`/assets/images/${day}/${num}.png`} sx={{ maxWidth: 'sm' }} />
         ))}
       </Carousel>
-      <TextField
-        fullWidth
-        variant="filled"
-        label="Summarize..."
-        value={input}
-        onChange={(update) => setInput(update.target.value)}
-      />
-      <Button
-        variant="contained"
-        onClick={() => {
-          submitData(day, index, input);
-          setInput('');
-        }}
-      >
-        SUBMIT
-      </Button>
+      <Container sx={{ display: 'flex', flexDirection: 'column' }}>
+        <TextField
+          fullWidth
+          variant="filled"
+          label="Summarize..."
+          value={input}
+          onChange={(update) => setInput(update.target.value)}
+        />
+        <Button
+          sx={{ my: 2 }}
+          variant="contained"
+          onClick={() => {
+            submitData(day, index, input);
+            setInput('');
+          }}
+        >
+          SUBMIT
+        </Button>
+      </Container>
     </>
   );
 }

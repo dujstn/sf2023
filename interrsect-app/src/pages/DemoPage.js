@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ToggleButtonGroup, ToggleButton, Typography, Grid } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton, Typography, Grid, Container } from '@mui/material';
 import { useState } from 'react';
 import Sandbox from '../sections/demo/Sandbox';
 import Presets from '../sections/demo/Presets';
@@ -18,10 +18,12 @@ export default function DemoPage() {
       <Helmet>
         <title>Demo</title>
       </Helmet>
-      <Typography variant="h1" fontFamily="consolas" color="#F35938">
-        interrsect-app
-      </Typography>
-      <Typography variant="h1">summarizes notes.</Typography>
+      <Container sx={{p: 2}}>
+        <Typography variant="h1" fontFamily="consolas" color="#F35938">
+          interrsect-app
+        </Typography>
+        <Typography variant="h1">summarizes notes.</Typography>
+      </Container>
       <Grid container alignItems={'center'} direction="column">
         <Grid item>
           <ToggleButtonGroup onChange={handleChange} exclusive color="primary" value={exp}>

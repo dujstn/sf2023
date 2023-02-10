@@ -8,9 +8,6 @@ export default function AboutPage() {
         <title>About</title>
       </Helmet>
       <Typography variant="h1">About This Project</Typography>
-      <Card>
-        <CardHeader title={'Introduction'} />
-      </Card>
     </>
   );
 }

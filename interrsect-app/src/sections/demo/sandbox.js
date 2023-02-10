@@ -10,6 +10,7 @@ import {
   CardHeader,
   Box,
   ListItem,
+  Alert,
 } from '@mui/material';
 import { useState } from 'react';
 import { query } from '../../functions/query';
@@ -29,8 +30,8 @@ export default function Sandbox() {
   return (
     <>
       <Container>
-        <Card sx={{ my: 2, p: 4 }}>
-          <CardHeader title={'Students say...'} />
+        <Card sx={{ my: 2 }}>
+          <CardHeader title={'Students describe a cat...'} />
           <Stack direction={isNarrow ? 'row' : 'column'} spacing={3} sx={{ p: 4 }}>
             <Typography variant="p" align="center">
               {sampleOne}
@@ -46,7 +47,7 @@ export default function Sandbox() {
           </Stack>
         </Card>
         <Card sx={{ my: 2 }}>
-          <CardHeader title={'Your Input'} />
+          <CardHeader title={"Now it's your turn!"} />
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <TextField
               multiline
@@ -80,12 +81,11 @@ export default function Sandbox() {
             {loading ? <LinearProgress sx={{ mt: 1 }} /> : <></>}
           </Box>
         </Card>
+        <Alert severity="info">The first run may take more time than usual due to the model warming up!</Alert>
         <Card sx={{ my: 2 }}>
           <CardHeader title={'BARTxiv says...'} />
           {prediction.split('. ').map((sentence) => (
-            <ListItem sx={{display: 'list-item'}}>
-              {sentence}
-            </ListItem>
+            <ListItem sx={{ display: 'list-item' }}>{sentence}</ListItem>
           ))}
         </Card>
       </Container>
