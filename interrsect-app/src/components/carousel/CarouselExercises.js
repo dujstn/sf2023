@@ -1,9 +1,9 @@
-import { Box, Button, Container, TextField, Typography, Alert } from '@mui/material';
+import { Box, Button, Container, TextField, Typography, Alert, Card, Paper } from '@mui/material';
 import { collection, addDoc } from 'firebase/firestore';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import NewCarousel from 'react-material-ui-carousel';
 import { useState } from 'react';
 import db from '../../firebase';
+import useResponsive from '../../hooks/useResponsive';
 
 export default function CarouselExercises({ day, num, ...other }) {
   async function submitData(day, index, input) {
@@ -25,17 +25,25 @@ export default function CarouselExercises({ day, num, ...other }) {
   };
   const [index, setIndex] = useState(0);
   const [input, setInput] = useState('');
-  const [success, setSuccess] = useState();
+  const [success, setSuccess] = useState(true);
   const [loading, setLoading] = useState(false);
   const nums = [...Array(num).keys()];
+  const isNarrow = useResponsive('up', 'lg');
+
   return (
     <>
-      <Carousel onChange={handleChange} emulateTouch showStatus={false} useKeyboardArrows showThumbs={false}>
+      <NewCarousel onChange={handleChange} autoPlay={false} cycleNavigation={false} navButtonsAlwaysVisible>
         {nums.map((num) => (
-          <Box component="img" src={`/assets/images/${day}/${num}.png`} sx={{ maxWidth: 'sm' }} />
+          <Container sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Card
+              component="img"
+              src={`/assets/images/${day}/${num}.png`}
+              sx={{ maxWidth: isNarrow ? 'sm' : 'xs', display: 'flex', alignSelf: 'center' }}
+            />
+          </Container>
         ))}
-      </Carousel>
-      <Container sx={{ display: 'flex', flexDirection: 'column' }}>
+      </NewCarousel>
+      <Box sx={{ p: 2, display: 'flex' }}>
         <TextField
           fullWidth
           multiline
@@ -60,13 +68,13 @@ export default function CarouselExercises({ day, num, ...other }) {
           SUBMIT
         </Button>
         {loading ? (
-          <Alert severity={setSuccess ? 'success' : 'error'}>
-            {setSuccess ? 'Entry successfully recorded. Thanks!' : 'Error submitting entry. Try again.'}
+          <Alert severity={success ? 'success' : 'error'}>
+            {success ? 'Entry successfully recorded. Thanks!' : 'Error submitting entry. Try again.'}
           </Alert>
         ) : (
           <></>
         )}
-      </Container>
+      </Box>
     </>
   );
 }

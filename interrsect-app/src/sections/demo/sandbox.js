@@ -66,11 +66,13 @@ export default function Sandbox() {
                 setPrediction('');
                 const data = {
                   inputs: samples + userInput,
-                  options: {
+                  options: {  
                     wait_for_model: true,
+                    max_length: 32
                   },
                 };
                 query(data).then((value) => {
+                  console.log(value)
                   setPrediction(value);
                   setLoading(false);
                 });
