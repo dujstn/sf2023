@@ -33,6 +33,19 @@ export default function ChemPage() {
       <SimpleBar>
         <Box sx={{ display: 'flex', gap: 4, my: 2 }}>
           <Grid item sx={{ minWidth: 300 }}>
+            <Card sx={{ p: 2 }}>
+              <Typography variant="h3" sx={{ mb: 2 }}>
+                February 15
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Typography variant="p">Collision Theory</Typography>
+                <Button variant="outlined" href="/dashboard/chemtwelve/feb-15" sx={{ alignSelf: 'flex-end', mt: 2 }}>
+                  View
+                </Button>
+              </Box>
+            </Card>
+          </Grid>
+          <Grid item sx={{ minWidth: 300 }}>
             <Card sx={{ padding: 2 }}>
               <Typography variant="h3" sx={{ mb: 2 }}>
                 February 14

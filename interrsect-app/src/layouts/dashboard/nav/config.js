@@ -10,8 +10,8 @@ const navConfig = [
     title: 'Demo',
     path: '/dashboard/demo',
   },
+  { title: 'Chem 12', path: '/dashboard/chemtwelve' },
   { title: 'About', path: '/dashboard/about' },
-  {title: 'Chem 12', path: '/dashboard/chemtwelve'}
 ];
 
 export default navConfig;

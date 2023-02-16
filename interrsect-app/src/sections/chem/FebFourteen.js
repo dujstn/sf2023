@@ -7,11 +7,9 @@ export default function FebFourteen() {
       <Container>
         <Card sx={{ my: 2, backgroundColor: '#d6efff' }}>
           <Box sx={{ p: 2 }}>
-            <Typography variant="h2">Reaction Rate Factors</Typography>
-            <Typography variant="p">
-              Summarize each slide in exactly <strong>2</strong> sentences.
-            </Typography>
+            <Typography variant="h2" sx={{textAlign: 'center'}}>Reaction Rate Factors</Typography>
           </Box>
+
           <CarouselExercises day="febfourteen" num={4} />
         </Card>
       </Container>

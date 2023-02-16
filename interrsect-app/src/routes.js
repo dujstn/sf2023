@@ -11,6 +11,7 @@ import ChemPage from './pages/ChemPage';
 // Subsections
 import FebTen from './sections/chem/FebTen';
 import FebFourteen from './sections/chem/FebFourteen';
+import FebFifteen from './sections/chem/FebFifteen';
 
 // ----------------------------------------------------------------------
 
@@ -29,6 +30,7 @@ export default function Router() {
           children: [
             { path: 'feb-10', element: <FebTen /> },
             { path: 'feb-14', element: <FebFourteen /> },
+            { path: 'feb-15', element: <FebFifteen /> },
           ],
         },
       ],

@@ -32,7 +32,18 @@ export default function CarouselExercises({ day, num, ...other }) {
 
   return (
     <>
-      <NewCarousel onChange={handleChange} autoPlay={false} cycleNavigation={false} navButtonsAlwaysVisible>
+      <NewCarousel
+        onChange={handleChange}
+        autoPlay={false}
+        cycleNavigation={false}
+        navButtonsAlwaysVisible
+        navButtonsWrapperProps={{
+          style: {
+            top: '2',
+            bottom: '2',
+          },
+        }}
+      >
         {nums.map((num) => (
           <Container sx={{ display: 'flex', flexDirection: 'column' }}>
             <Card
@@ -43,7 +54,10 @@ export default function CarouselExercises({ day, num, ...other }) {
           </Container>
         ))}
       </NewCarousel>
-      <Box sx={{ p: 2, display: 'flex' }}>
+      <Box sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+        <Typography variant="h4" sx={{ alignSelf: 'center', textAlign: 'center' }}>
+          Summarize each slide in exactly <strong>2</strong> sentences.
+        </Typography>
         <TextField
           fullWidth
           multiline

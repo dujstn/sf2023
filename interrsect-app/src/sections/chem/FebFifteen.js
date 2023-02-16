@@ -1,17 +1,17 @@
-import { Typography, Card, Button, useTheme, Container, Box } from '@mui/material';
+import { Typography, Card, Button, Container, Box } from '@mui/material';
 import CarouselExercises from '../../components/carousel/CarouselExercises';
 
-export default function FebTen() {
+export default function FebFourteen() {
   return (
     <>
       <Container>
         <Card sx={{ my: 2, backgroundColor: '#d6efff' }}>
           <Box sx={{ p: 2 }}>
             <Typography variant="h2" sx={{ textAlign: 'center' }}>
-              Monitoring Reactions
+              Collision Theory
             </Typography>
           </Box>
-          <CarouselExercises day="febten" num={6} />
+          <CarouselExercises day="febfifteen" num={8} />
         </Card>
       </Container>
     </>
