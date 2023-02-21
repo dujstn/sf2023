@@ -17,8 +17,9 @@ export default function DemoPage() {
     <>
       <Helmet>
         <title>Demo</title>
+        <meta name="description" content="See how interrsect-app works!" />
       </Helmet>
-      <Container sx={{p: 2}}>
+      <Container sx={{ p: 2 }}>
         <Typography variant="h1" fontFamily="consolas" color="#F35938">
           interrsect-app
         </Typography>

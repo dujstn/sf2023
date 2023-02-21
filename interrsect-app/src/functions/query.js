@@ -8,11 +8,13 @@ export async function query(data) {
     method: 'POST',
     body: JSON.stringify(data),
   });
-  const result = await response.json();
-  if (result) {
+  try {
+    const result = await response.json();
     console.log('fetch success!');
     const generated = result[0].summary_text;
     prediction = generated;
+  } catch (err) {
+    console.log(err.message);
   }
   return prediction;
 }

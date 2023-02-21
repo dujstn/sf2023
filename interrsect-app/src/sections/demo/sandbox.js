@@ -66,13 +66,15 @@ export default function Sandbox() {
                 setPrediction('');
                 const data = {
                   inputs: samples + userInput,
-                  options: {  
+                  parameters: {
+                    temperature: 2.0,
+                  },
+                  options: {
                     wait_for_model: true,
-                    max_length: 32
                   },
                 };
                 query(data).then((value) => {
-                  console.log(value)
+                  console.log(value);
                   setPrediction(value);
                   setLoading(false);
                 });

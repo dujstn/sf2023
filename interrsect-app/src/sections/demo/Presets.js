@@ -10,7 +10,6 @@ import {
   ListItem,
   CardContent,
   CardActions,
-  Stack,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -103,7 +102,6 @@ export default function Presets() {
               onClick={() => {
                 setLoading(true);
                 setPrediction('');
-                const input = [];
                 const data = {
                   inputs: texts === 0 ? presetConfig[0].text : presetConfig[1].text,
                   options: {

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import {
   Card,
@@ -7,20 +8,44 @@ import {
   Box,
   Divider,
   Alert,
+  CardActions,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  CircularProgress,
   Container,
-  ImageList,
-  ImageListItem,
+  ListItem,
 } from '@mui/material';
-import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import Scrollbar from '../components/scrollbar';
+import { chemConfig } from './config';
+import { getData } from '../functions/getData';
 
 export default function ChemPage() {
+  const [notes, setNotes] = useState('');
+  const [title, setTitle] = useState();
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleClick(id, date, topic) {
+    setTitle(`${date}: ${topic}`);
+    console.log(id);
+    const output = await getData(id);
+    setNotes(output);
+    setLoading(false);
+  }
+
+  const handleClose = () => {
+    setNotes('');
+    setOpen(false);
+  };
+
   return (
     <>
       <Helmet>
         <title>Chemistry 12</title>
+        <meta name="description" content="Ongoing experimental trial" />
       </Helmet>
 
       <Typography variant="h1" sx={{ p: 2 }}>
@@ -32,50 +57,71 @@ export default function ChemPage() {
       </Alert>
       <SimpleBar>
         <Box sx={{ display: 'flex', gap: 4, my: 2 }}>
-          <Grid item sx={{ minWidth: 300 }}>
-            <Card sx={{ p: 2 }}>
-              <Typography variant="h3" sx={{ mb: 2 }}>
-                February 15
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Typography variant="p">Collision Theory</Typography>
-                <Button variant="outlined" href="/dashboard/chemtwelve/feb-15" sx={{ alignSelf: 'flex-end', mt: 2 }}>
-                  View
-                </Button>
-              </Box>
-            </Card>
-          </Grid>
-          <Grid item sx={{ minWidth: 300 }}>
-            <Card sx={{ padding: 2 }}>
-              <Typography variant="h3" sx={{ mb: 2 }}>
-                February 14
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Typography variant="p">Reaction Rate Factors</Typography>
-                <Button variant="outlined" href="/dashboard/chemtwelve/feb-14" sx={{ alignSelf: 'flex-end', mt: 2 }}>
-                  View
-                </Button>
-              </Box>
-            </Card>
-          </Grid>
-          <Grid item sx={{ minWidth: 300 }}>
-            <Card sx={{ p: 2 }}>
-              <Typography variant="h3" sx={{ mb: 2 }}>
-                February 10
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Typography variant="p">Monitoring Reactions</Typography>
-                <Button variant="outlined" href="/dashboard/chemtwelve/feb-10" sx={{ alignSelf: 'flex-end', mt: 2 }}>
-                  View
-                </Button>
-              </Box>
-            </Card>
-          </Grid>
+          {chemConfig.map((entry) => (
+            <Grid item sx={{ minWidth: 300 }}>
+              <Card sx={{ p: 2 }}>
+                <Typography variant="h3" sx={{ mb: 2 }}>
+                  {entry.date}
+                </Typography>
+                <Typography variant="p">{entry.title}</Typography>
+                <CardActions sx={{ dislay: 'flex', justifyContent: 'flex-end' }}>
+                  {entry.notesReady ? (
+                    <Button
+                      data-key={entry.collection}
+                      data-date={entry.date}
+                      data-title={entry.title}
+                      variant="outlined"
+                      sx={{ display: 'flex', alignSelf: 'flex-end', mt: 2, ml: 2 }}
+                      onClick={(e) => {
+                        setLoading(true);
+                        handleClick(
+                          e.currentTarget.dataset.key,
+                          e.currentTarget.dataset.date,
+                          e.currentTarget.dataset.title
+                        );
+                        setOpen(true);
+                      }}
+                    >
+                      Results
+                    </Button>
+                  ) : (
+                    <></>
+                  )}
+                  <Button
+                    variant="outlined"
+                    href={`/dashboard/chemtwelve/${entry.url}`}
+                    sx={{ alignSelf: 'flex-end', mt: 2, ml: 2 }}
+                  >
+                    Contribute
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
         </Box>
       </SimpleBar>
-
       <Divider sx={{ my: 2 }} />
       <Outlet />
+      <Dialog open={open} onClose={handleClose} scroll="body">
+        <DialogTitle>{title}</DialogTitle>
+        <DialogContent>
+          <Container>
+            <Alert severity="info">
+              Results generated by the model may not be 100% accurate or complete. Do not rely on this content as your
+              only study material.
+            </Alert>
+            {loading ? <CircularProgress /> : <></>}
+            {notes ? (
+              notes.split('. ').map((sentence) => <ListItem sx={{ display: 'list-item' }}> {sentence}</ListItem>)
+            ) : (
+              <Alert severity="error">The server encountered an error. Please try again later.</Alert>
+            )}
+          </Container>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>CLOSE</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }
