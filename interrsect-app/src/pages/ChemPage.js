@@ -23,7 +23,7 @@ import { chemConfig } from './config';
 import { getData } from '../functions/getData';
 
 export default function ChemPage() {
-  const [notes, setNotes] = useState('');
+  const [notes, setNotes] = useState(' ');
   const [title, setTitle] = useState();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -88,6 +88,7 @@ export default function ChemPage() {
                     <></>
                   )}
                   <Button
+                    disabled
                     variant="outlined"
                     href={`/dashboard/chemtwelve/${entry.url}`}
                     sx={{ alignSelf: 'flex-end', mt: 2, ml: 2 }}

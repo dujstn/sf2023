@@ -10,6 +10,12 @@ export async function getData(date) {
   });
   s = s.replace(/\r?\n|\r/g, '');
   console.log(s);
-  const output = await summarize(s);
+  const data = {
+    inputs: s,
+    options: {
+      wait_for_model: true,
+    },
+  };
+  const output = await summarize(data);
   return output;
 }

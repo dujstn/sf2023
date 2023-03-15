@@ -2,46 +2,83 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="52.826035mm"
-   height="52.947632mm"
-   viewBox="0 0 52.826035 52.947632"
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
    version="1.1"
-   id="svg5"
+   id="svg8123"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs2" />
-  <path
-     id="path5719-9"
-     style="fill:#070000;fill-rule:evenodd;stroke-width:1.4315;stop-color:#000000"
-     d="m 13.987008,20.780924 a 0.7881602,0.7881602 0 0 1 -0.78816,0.78816 0.7881602,0.7881602 0 0 1 -0.78816,-0.78816 0.7881602,0.7881602 0 0 1 0.78816,-0.78816 0.7881602,0.7881602 0 0 1 0.78816,0.78816 z" />
-  <path
-     id="circle5721-8"
-     style="fill:#070000;fill-rule:evenodd;stroke-width:1.4315;stop-color:#000000"
-     d="m 16.335687,20.780924 a 0.7881602,0.7881602 0 0 1 -0.788161,0.78816 0.7881602,0.7881602 0 0 1 -0.78816,-0.78816 0.7881602,0.7881602 0 0 1 0.78816,-0.78816 0.7881602,0.7881602 0 0 1 0.788161,0.78816 z" />
+     id="defs8120" />
   <g
-     aria-label="R"
-     transform="scale(-1,1)"
-     id="text410-1"
-     style="font-size:40.0467px;line-height:1.25;font-family:Bierstadt;-inkscape-font-specification:Bierstadt;stroke-width:0.100117">
-    <path
-       d="M -25.563949,39.633698 V 13.313943 h 9.972566 q 2.366041,0 4.223676,0.743054 1.8576347,0.743054 2.9526616,2.326932 1.095027,1.564324 1.095027,3.930365 0,2.542026 -1.4274459,4.282337 -1.4078917,1.740311 -4.0867967,2.36604 1.427446,0.215095 2.36604,0.919041 0.9581487,0.684392 1.6034324,1.935851 0.6452838,1.231905 1.1732432,3.226419 l 1.7403107,6.589716 h -3.5979457 l -1.5056616,-6.022649 q -0.469298,-1.857635 -1.075473,-2.952662 -0.586622,-1.114581 -1.466554,-1.622986 -0.879933,-0.527959 -2.209608,-0.527959 h -6.198635 v 11.126256 z m 9.503269,-14.098472 q 1.466554,0 2.639797,-0.547514 1.173243,-0.567067 1.838081,-1.603432 0.684392,-1.036365 0.684392,-2.463811 0,-2.209608 -1.310122,-3.421959 -1.290567,-1.212351 -3.734824,-1.212351 h -6.061756 v 9.249067 z"
-       id="path386" />
+     id="layer1">
+    <g
+       id="g8676"
+       transform="matrix(6.3342981,0,0,6.3342981,-784.84239,-673.24064)">
+      <g
+         id="g5826"
+         transform="translate(43.140934,67.975284)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5964px;line-height:1.25;font-family:Bierstadt;-inkscape-font-specification:Bierstadt;fill:#25a6ff;fill-opacity:1;stroke-width:0.056491"
+           x="-97.786308"
+           y="62.123547"
+           id="text5818"
+           transform="scale(-1,1)"><tspan
+             id="tspan5816"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#25a6ff;fill-opacity:1;stroke-width:0.056491"
+             x="-97.786308"
+             y="62.123547">R</tspan></text>
+        <g
+           id="g5824"
+           style="fill:#000000;fill-opacity:1"
+           transform="matrix(0.80772685,0,0,0.80772685,8.7536529,-17.169318)">
+          <circle
+             style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+             id="circle5820"
+             cx="99.184219"
+             cy="83.687737"
+             r="0.55058259" />
+          <circle
+             style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+             id="circle5822"
+             cx="100.82493"
+             cy="83.687737"
+             r="0.55058259" />
+        </g>
+      </g>
+      <g
+         id="g5838"
+         transform="translate(43.140934,67.975284)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5964px;line-height:1.25;font-family:Bierstadt;-inkscape-font-specification:Bierstadt;fill:#25a6ff;fill-opacity:1;stroke-width:0.056491"
+           x="95.313179"
+           y="62.123547"
+           id="text5830"><tspan
+             id="tspan5828"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#25a6ff;fill-opacity:1;stroke-width:0.056491"
+             x="95.313179"
+             y="62.123547">R</tspan></text>
+        <g
+           id="g5836"
+           transform="matrix(0.80772685,0,0,0.80772685,23.020082,-17.169318)"
+           style="fill:#000000;fill-opacity:1">
+          <circle
+             style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+             id="circle5832"
+             cx="99.184219"
+             cy="83.687737"
+             r="0.55058259" />
+          <circle
+             style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+             id="circle5834"
+             cx="100.82493"
+             cy="83.687737"
+             r="0.55058259" />
+        </g>
+      </g>
+    </g>
   </g>
-  <g
-     aria-label="R"
-     id="text402-6"
-     style="font-size:40.0467px;font-family:Bierstadt;-inkscape-font-specification:Bierstadt;fill:#76c7ff;stroke-width:0.100117">
-    <path
-       d="M 27.262104,39.633698 V 13.313943 h 9.972567 q 2.36604,0 4.223675,0.743054 1.857635,0.743054 2.952662,2.326932 1.095027,1.564324 1.095027,3.930365 0,2.542026 -1.427446,4.282337 -1.407891,1.740311 -4.086797,2.36604 1.427446,0.215095 2.366041,0.919041 0.958148,0.684392 1.603432,1.935851 0.645284,1.231905 1.173243,3.226419 l 1.740311,6.589716 h -3.597946 l -1.505662,-6.022649 q -0.469297,-1.857635 -1.075473,-2.952662 -0.586621,-1.114581 -1.466554,-1.622986 -0.879932,-0.527959 -2.209608,-0.527959 h -6.198634 v 11.126256 z m 9.50327,-14.098472 q 1.466554,0 2.639797,-0.547514 1.173243,-0.567067 1.838081,-1.603432 0.684392,-1.036365 0.684392,-2.463811 0,-2.209608 -1.310122,-3.421959 -1.290567,-1.212351 -3.734824,-1.212351 h -6.061756 v 9.249067 z"
-       id="path485" />
-  </g>
-  <path
-     id="circle5727-8"
-     style="fill:#070000;fill-rule:evenodd;stroke-width:1.4315;stop-color:#000000"
-     d="m 38.468988,20.780924 a 0.7881602,0.7881602 0 0 1 -0.78816,0.78816 0.7881602,0.7881602 0 0 1 -0.78816,-0.78816 0.7881602,0.7881602 0 0 1 0.78816,-0.78816 0.7881602,0.7881602 0 0 1 0.78816,0.78816 z" />
-  <path
-     id="circle5729-0"
-     style="fill:#070000;fill-rule:evenodd;stroke-width:1.4315;stop-color:#000000"
-     d="m 40.817667,20.780924 a 0.7881602,0.7881602 0 0 1 -0.78816,0.78816 0.7881602,0.7881602 0 0 1 -0.788161,-0.78816 0.7881602,0.7881602 0 0 1 0.788161,-0.78816 0.7881602,0.7881602 0 0 1 0.78816,0.78816 z" />
 </svg>
