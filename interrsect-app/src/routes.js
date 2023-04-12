@@ -7,6 +7,7 @@ import Page404 from './pages/Page404';
 import DemoPage from './pages/DemoPage';
 import AboutPage from './pages/AboutPage';
 import ChemPage from './pages/ChemPage';
+import ImagePage from './pages/ImagePage';
 
 // Subsections
 import FebTen from './sections/chem/FebTen';
@@ -25,6 +26,7 @@ export default function Router() {
         { element: <Navigate to="/dashboard/demo" />, index: true },
         { path: 'demo', element: <DemoPage /> },
         { path: 'about', element: <AboutPage /> },
+        { path: 'imaging', element: <ImagePage /> },
         {
           path: 'chemtwelve',
           element: <ChemPage />,

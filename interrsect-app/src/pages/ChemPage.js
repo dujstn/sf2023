@@ -48,61 +48,63 @@ export default function ChemPage() {
         <meta name="description" content="Ongoing experimental trial" />
       </Helmet>
 
-      <Typography variant="h1" sx={{ p: 2 }}>
-        Chemistry 12
-      </Typography>
-      <Alert severity="warning" sx={{ p: 2 }}>
-        By using this page, you have <strong>filled out the permission form</strong> and consent to the usage of
-        inputted data for research.
-      </Alert>
-      <SimpleBar>
-        <Box sx={{ display: 'flex', gap: 4, my: 2 }}>
-          {chemConfig.map((entry) => (
-            <Grid item sx={{ minWidth: 300 }}>
-              <Card sx={{ p: 2 }}>
-                <Typography variant="h3" sx={{ mb: 2 }}>
-                  {entry.date}
-                </Typography>
-                <Typography variant="p">{entry.title}</Typography>
-                <CardActions sx={{ dislay: 'flex', justifyContent: 'flex-end' }}>
-                  {entry.notesReady ? (
+      <Container>
+        <Typography variant="h1" sx={{ p: 2 }}>
+          Chemistry 12
+        </Typography>
+        <Alert severity="warning" sx={{ p: 2 }}>
+          By using this page, you have <strong>filled out the permission form</strong> and consent to the usage of
+          inputted data for research.
+        </Alert>
+        <SimpleBar>
+          <Box sx={{ display: 'flex', gap: 4, my: 2 }}>
+            {chemConfig.map((entry) => (
+              <Grid item sx={{ minWidth: 300 }}>
+                <Card sx={{ p: 2 }}>
+                  <Typography variant="h3" sx={{ mb: 2 }}>
+                    {entry.date}
+                  </Typography>
+                  <Typography variant="p">{entry.title}</Typography>
+                  <CardActions sx={{ dislay: 'flex', justifyContent: 'flex-end' }}>
+                    {entry.notesReady ? (
+                      <Button
+                        data-key={entry.collection}
+                        data-date={entry.date}
+                        data-title={entry.title}
+                        variant="outlined"
+                        sx={{ display: 'flex', alignSelf: 'flex-end', mt: 2, ml: 2 }}
+                        onClick={(e) => {
+                          setLoading(true);
+                          handleClick(
+                            e.currentTarget.dataset.key,
+                            e.currentTarget.dataset.date,
+                            e.currentTarget.dataset.title
+                          );
+                          setOpen(true);
+                        }}
+                      >
+                        Results
+                      </Button>
+                    ) : (
+                      <></>
+                    )}
                     <Button
-                      data-key={entry.collection}
-                      data-date={entry.date}
-                      data-title={entry.title}
+                      disabled
                       variant="outlined"
-                      sx={{ display: 'flex', alignSelf: 'flex-end', mt: 2, ml: 2 }}
-                      onClick={(e) => {
-                        setLoading(true);
-                        handleClick(
-                          e.currentTarget.dataset.key,
-                          e.currentTarget.dataset.date,
-                          e.currentTarget.dataset.title
-                        );
-                        setOpen(true);
-                      }}
+                      href={`/dashboard/chemtwelve/${entry.url}`}
+                      sx={{ alignSelf: 'flex-end', mt: 2, ml: 2 }}
                     >
-                      Results
+                      Contribute
                     </Button>
-                  ) : (
-                    <></>
-                  )}
-                  <Button
-                    disabled
-                    variant="outlined"
-                    href={`/dashboard/chemtwelve/${entry.url}`}
-                    sx={{ alignSelf: 'flex-end', mt: 2, ml: 2 }}
-                  >
-                    Contribute
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Box>
-      </SimpleBar>
-      <Divider sx={{ my: 2 }} />
-      <Outlet />
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Box>
+        </SimpleBar>
+        <Divider sx={{ my: 2 }} />
+        <Outlet />
+      </Container>
       <Dialog open={open} onClose={handleClose} scroll="body">
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>
