@@ -9,6 +9,8 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  LinearProgress,
+  ListItem,
   Stack,
   Typography,
 } from '@mui/material';
@@ -16,21 +18,20 @@ import { Helmet } from 'react-helmet-async';
 import { FileUploader } from 'react-drag-drop-files';
 import { ocr } from '../functions/ocr';
 import { query } from '../functions/query';
-import useResponsive from '../hooks/useResponsive';
 
 export default function ImagePage() {
   const fileTypes = ['JPG', 'PNG', 'JPEG'];
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
+  const [picture, setPicture] = useState();
   const handleChange = (file) => {
-    setFile(file);
+    // setFile(file);
     setPicture(URL.createObjectURL(file));
   };
 
-  const isWide = useResponsive('up', 'lg');
-  const [picture, setPicture] = useState();
   const [text, setText] = useState();
   const [prediction, setPrediction] = useState();
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -61,7 +62,7 @@ export default function ImagePage() {
           <Alert severity="success" sx={{ m: 2 }}>
             Uploaded images are not saved on this website.
           </Alert>
-          <Container sx={{ display: 'flex', flexDirection: isWide ? 'column' : 'row' }}>
+          <Container sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
             {picture == null ? (
               <FileUploader
                 handleChange={handleChange}
@@ -69,19 +70,19 @@ export default function ImagePage() {
                 hoverTitle="Drop Here"
                 label="Upload a picture to continue"
                 children={
-                  <Box sx={{ border: '2px dashed grey', borderRadius: 1 }}>
+                  <Box sx={{ border: '2px dashed grey', borderRadius: 1, m: 2 }}>
                     <Typography sx={{ p: 4 }}>Drop or click to upload an image to continue</Typography>
                   </Box>
                 }
               />
             ) : (
-              <Box component="img" alt="Uploaded image" src={picture} sx={{ display: 'flex',  }} />
+              <Box component="img" alt="Uploaded image" src={picture} sx={{ display: 'flex', maxWidth: 0.6 }} />
             )}
             <Box>
               {picture == null ? (
                 <></>
               ) : (
-                <>
+                <Stack spacing={3} sx={{ m: 2 }}>
                   <Button variant="outlined" component="label">
                     Change Picture
                     <input
@@ -99,38 +100,45 @@ export default function ImagePage() {
                   <Button
                     variant="contained"
                     onClick={() => {
+                      setLoading(true);
                       ocr(picture).then((value) => {
                         setText(value);
                         const data = {
-                          inputs: text,
+                          inputs: value,
                           options: {
                             wait_for_model: true,
                           },
                         };
                         query(data).then((input) => {
                           setPrediction(input);
+                          setLoading(false);
                         });
                       });
                     }}
                   >
                     Submit
                   </Button>
-                </>
-              )}
-
-              {text == null ? (
-                <></>
-              ) : (
-                <Button variant="outlined" onClick={handleClickOpen}>
-                  See extracted text
-                </Button>
+                  {text == null ? (
+                    <></>
+                  ) : (
+                    <Button variant="outlined" onClick={handleClickOpen}>
+                      See extracted text
+                    </Button>
+                  )}
+                  {prediction == null ? (
+                    <></>
+                  ) : (
+                    <Typography>
+                      {prediction.split('. ').map((sentence) => (
+                        <ListItem sx={{ display: 'list-item' }}> {sentence}</ListItem>
+                      ))}
+                    </Typography>
+                  )}
+                </Stack>
               )}
             </Box>
           </Container>
-        </Card>
-
-        <Card sx={{ m: 2 }}>
-          <Typography>{prediction}</Typography>
+          {loading ? <LinearProgress sx={{ mt: 1 }} /> : <></>}
         </Card>
       </Container>
       <Dialog open={open} onClose={handleClose} scroll="body">

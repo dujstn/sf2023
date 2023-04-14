@@ -87,7 +87,7 @@ export default function Sandbox() {
         </Card>
         <Alert severity="info">The first run may take more time than usual due to the model warming up!</Alert>
         <Card sx={{ my: 2 }}>
-          <CardHeader title={'BARTxiv says...'} />
+          <CardHeader title={'See the summary:'} />
           {prediction.split('. ').map((sentence) => (
             <ListItem sx={{ display: 'list-item' }}>{sentence}</ListItem>
           ))}

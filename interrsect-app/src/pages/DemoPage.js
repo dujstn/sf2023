@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ToggleButtonGroup, ToggleButton, Typography, Grid, Container } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton, Typography, Grid, Container, Box } from '@mui/material';
 import { useState } from 'react';
 import Sandbox from '../sections/demo/Sandbox';
 import Presets from '../sections/demo/Presets';
@@ -20,9 +20,7 @@ export default function DemoPage() {
         <meta name="description" content="See how interrsect-app works!" />
       </Helmet>
       <Container sx={{ p: 2 }}>
-        <Typography variant="h1" fontFamily="courier new" color="#25a6ff">
-          interrsect-app
-        </Typography>
+        <Box component="img" src="/assets/logo_full.svg" />
         <Typography variant="h1">summarizes notes.</Typography>
       </Container>
       <Grid container alignItems={'center'} direction="column">
