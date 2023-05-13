@@ -35,7 +35,7 @@ export default function AboutPage() {
             Try it out here!
           </Typography>
         </Button>
-        <Box component="img" src="/assets/logo_full.svg" />
+        <Box component="img" src="/assets/logo2.svg" />
         <Typography>Created by Justin Du, 2023. </Typography>
       </Container>
     </>

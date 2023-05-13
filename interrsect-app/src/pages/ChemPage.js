@@ -90,7 +90,7 @@ export default function ChemPage() {
                       <></>
                     )}
                     <Button
-                      disabled
+                      // disabled
                       variant="outlined"
                       href={`/dashboard/chemtwelve/${entry.url}`}
                       sx={{ alignSelf: 'flex-end', mt: 2, ml: 2 }}

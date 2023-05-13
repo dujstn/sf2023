@@ -20,7 +20,7 @@ export default function DemoPage() {
         <meta name="description" content="See how interrsect-app works!" />
       </Helmet>
       <Container sx={{ p: 2 }}>
-        <Box component="img" src="/assets/logo_full.svg" />
+        <Box component="img" src="/assets/logo2.svg" />
         <Typography variant="h1">summarizes notes.</Typography>
       </Container>
       <Grid container alignItems={'center'} direction="column">
