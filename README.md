@@ -5,4 +5,4 @@ Notes are used by over 90% of students as a study tool and yet are only benefici
 
 See the [website](https://interrsect.web.app)
 
-View the model on [Hugging Face](https://https://huggingface.co/kworts/BARTxiv)
+View the model on [Hugging Face](https://huggingface.co/kworts/BARTxiv)
